@@ -1,26 +1,29 @@
 {
   "name": "frontend",
+  "private": true,
   "version": "0.0.0",
-  "description": "> TODO: description",
-  "author": "Jefferson Silva <jefferson.bruno.c@conceptatech.com>",
-  "homepage": "https://gitlab.com/concepta/rockets/rockets-playground#readme",
-  "license": "ISC",
-  "main": "lib/frontend.js",
-  "directories": {
-    "lib": "lib",
-    "test": "__tests__"
-  },
-  "files": [
-    "lib"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@gitlab.com/concepta/rockets/rockets-playground.git"
-  },
+  "type": "module",
   "scripts": {
-    "test": "node ./__tests__/frontend.test.js"
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
-  "bugs": {
-    "url": "https://gitlab.com/concepta/rockets/rockets-playground/issues"
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "eslint": "^9.13.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.11.0",
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.11.0",
+    "vite": "^5.4.10"
   }
 }
