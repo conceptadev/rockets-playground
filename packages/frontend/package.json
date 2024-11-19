@@ -1,0 +1,26 @@
+{
+  "name": "frontend",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Jefferson Silva <jefferson.bruno.c@conceptatech.com>",
+  "homepage": "https://gitlab.com/concepta/rockets/rockets-playground#readme",
+  "license": "ISC",
+  "main": "lib/frontend.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/concepta/rockets/rockets-playground.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/frontend.test.js"
+  },
+  "bugs": {
+    "url": "https://gitlab.com/concepta/rockets/rockets-playground/issues"
+  }
+}
