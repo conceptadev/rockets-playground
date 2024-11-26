@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "preview": "vite preview",
     "cy:open": "cypress open",
-    "cy:run": "cypress run"
+    "cy:run-e2e": "cypress run",
+    "cy:run-unit": "cypress run --component"
   },
   "dependencies": {
     "@concepta/react-auth-provider": "^2.0.0-alpha.16",
@@ -28,6 +29,7 @@
     "react-toastify": "^10.0.6"
   },
   "devDependencies": {
+    "@cypress/react18": "^2.0.1",
     "@eslint/js": "^9.13.0",
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",

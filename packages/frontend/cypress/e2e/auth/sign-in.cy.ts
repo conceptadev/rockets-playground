@@ -1,5 +1,5 @@
-describe("template spec", () => {
-  it("passes", () => {
+describe("Sign In", () => {
+  it("visits page without error", () => {
     cy.visit("/sign-in");
   });
 });
