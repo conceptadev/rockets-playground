@@ -9,7 +9,6 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-import { themeLight } from "./styles/theme";
 import UsersScreen from "./pages/Users";
 import SettingsScreen from "./pages/Settings";
 import {
@@ -46,22 +45,7 @@ const Routes = () => {
         text: user?.userProfile?.fullName || "",
         subText: user?.email || "",
       }}
-      drawerProps={{
-        activeIconColor: themeLight.palette.common.white,
-        iconColor: themeLight.palette.info.main,
-        backgroundColor: themeLight.palette.grey[900],
-        buttonSx: {
-          "& p": {
-            fontWeight: 500,
-          },
-          "&.active": {
-            backgroundColor: themeLight.palette.grey[800],
-          },
-          "&:hover": {
-            backgroundColor: themeLight.palette.grey[800],
-          },
-        },
-      }}
+      drawerProps={{}}
     >
       <Resource
         id="/settings"
@@ -107,7 +91,6 @@ const AdminProvider = ({ children }: PropsWithChildren) => {
         navigate("/sign-in");
       },
     },
-    theme: themeLight,
   });
 
   return (
