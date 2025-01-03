@@ -376,6 +376,18 @@
     react-router-dom "^6.26.0"
     react-toastify "^10.0.5"
 
+"@concepta/ts-common@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@concepta/ts-common/-/ts-common-5.1.0.tgz#ace6707be2dabe9ab4e76dfe903312680c5cf5e8"
+  integrity sha512-3UyICzRLJlfDIbu6OVx1mrCKCfKrBnhM42WhVdWtztr3nCuh9qwdEHscGz2PVeN7a285HcTgOnGIWIh9OQQ1tA==
+  dependencies:
+    "@concepta/ts-core" "^5.1.0"
+
+"@concepta/ts-core@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@concepta/ts-core/-/ts-core-5.1.0.tgz#f11bdcf9dee2a2d81c233440be75dbb8ac44bfa8"
+  integrity sha512-NV1Qc0CIF7vIsLZ3RerF0uNiLp6Q2WrE5WZvoVRcmza4TeCDLt+UKKcfl8p+BpmbaKNbzIy6HYCK03FgmP9YQg==
+
 "@cspotcode/source-map-support@^0.8.0":
   version "0.8.1"
   resolved "https://registry.yarnpkg.com/@cspotcode/source-map-support/-/source-map-support-0.8.1.tgz#00629c35a688e05a88b1cda684fb9d5e73f000a1"

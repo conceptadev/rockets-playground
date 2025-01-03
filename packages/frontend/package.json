@@ -17,6 +17,8 @@
     "@concepta/react-data-provider": "^2.0.0-alpha.16",
     "@concepta/react-material-ui": "^2.0.0-alpha.16",
     "@concepta/react-navigation": "^2.0.0-alpha.16",
+    "@concepta/ts-common": "^5.1.0",
+    "@concepta/ts-core": "^5.1.0",
     "@emotion/react": "^11.13.5",
     "@emotion/styled": "^11.13.5",
     "@mui/icons-material": "^6.1.8",
