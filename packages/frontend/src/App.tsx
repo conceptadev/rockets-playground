@@ -4,6 +4,7 @@ import { RocketsProvider, createConfig } from "@concepta/react-material-ui";
 import { Router, Resource, ChildRoutes } from "@concepta/react-navigation";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutline";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
 import { ToastContainer, toast } from "react-toastify";
@@ -11,6 +12,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 import UsersScreen from "./pages/Users";
 import SettingsScreen from "./pages/Settings";
+import ProfileScreen from "./pages/Profile";
 import {
   signInProps,
   forgotPasswordProps,
@@ -62,6 +64,13 @@ const Routes = () => {
         name="Users"
         icon={<PeopleAltOutlinedIcon />}
         page={<UsersScreen />}
+      />
+
+      <Resource
+        id="/profile"
+        name="Profile"
+        icon={<PersonOutlinedIcon />}
+        page={<ProfileScreen />}
       />
     </ChildRoutes>
   );
