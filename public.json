@@ -1,0 +1,11 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+      {
+          "Effect": "Allow",
+          "Principal": "*",
+          "Action": "s3:GetObject",
+          "Resource": "arn:aws:s3:::bucketeer-7f05b748-e29e-417e-9458-3de839fb7f21/public/*"
+      }
+  ]
+}
