@@ -1,0 +1,43 @@
+{
+  "name": "rockets-playground-common",
+  "version": "0.0.1",
+  "description": "rockets-playground Common",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "author": "Concepta Team",
+  "license": "proprietary",
+  "private": true,
+  "files": [
+    "dist/**/*.js"
+  ],
+  "scripts": {
+    "prebuild": "rimraf dist tsconfig.buildinfo",
+    "build": "tsc",
+    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "lint": "eslint \"src/**/*.ts\"",
+    "lint:fix": "yarn lint --fix",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@concepta/nestjs-common": "v6.0.0-alpha.0",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "@concepta/eslint-config": "^1.0.0",
+    "@concepta/nestjs-report": "v6.0.0-alpha.0",
+    "@concepta/prettier-config": "^1.0.0",
+    "@darraghor/eslint-plugin-nestjs-typed": "^3.20.5",
+    "@faker-js/faker": "^8.4.1",
+    "@types/jest": "^29.5.12",
+    "@types/node": "^16.0.0",
+    "eslint": "^8.32.0",
+    "jest": "27.0.6",
+    "prettier": "^2.3.2",
+    "ts-jest": "^27.0.3",
+    "typescript": "^4.9.4"
+  },
+  "peerDependencies": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1"
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "rockets-playground",
+  "license": "proprietary",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ]
+  },
+  "scripts": {
+    "start": "yarn start:api",
+    "start:dev": "yarn start:api:dev",
+    "start:debug": "yarn start:api:debug",
+    "start:api": "yarn workspace rockets-playground-api start",
+    "start:api:dev": "yarn workspace rockets-playground-api start:dev",
+    "start:api:debug": "yarn workspace rockets-playground-api start:debug",
+    "dev:web": "yarn workspace web dev --force",
+    "build": "yarn build:common && yarn build:api && yarn build:web",
+    "build:common": "yarn workspace rockets-playground-common build",
+    "build:api": "yarn workspace rockets-playground-api build",
+    "build:web": "yarn workspace web build",
+    "test": "yarn test:common && yarn test:api",
+    "test:common": "yarn workspace rockets-playground-common test",
+    "test:api": "yarn workspace rockets-playground-api test",
+    "lint": "yarn lint:common && yarn lint:api",
+    "lint:fix": "yarn lint:common:fix && yarn lint:api:fix",
+    "lint:common": "yarn workspace rockets-playground-common lint",
+    "lint:common:fix": "yarn workspace rockets-playground-common lint:fix",
+    "lint:api": "yarn workspace rockets-playground-api lint",
+    "lint:api:fix": "yarn workspace rockets-playground-api lint:fix",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.14.1",
+    "pg": "^8.12.0",
+    "rxjs": "^7.8.1",
+    "typeorm": "^0.3.20"
+  },
+  "devDependencies": {
+    "husky": "^9.0.11"
+  },
+  "packageManager": "yarn@4.4.0"
+}
