@@ -145,7 +145,7 @@ const UsersScreen = () => {
       );
       setFormVisible?.(false);
       refreshTable?.();
-    } catch (error) {
+    } catch {
       toast.error(
         `An error happened while ${
           status ? "activating" : "deactivating"
@@ -196,7 +196,7 @@ const UsersScreen = () => {
         await del({
           uri: `/role-assignment/user/${roleAssignedId}`,
         });
-      } catch (error) {
+      } catch {
         toast.error(
           "An error happened while deleting the user role. Please try again."
         );
@@ -215,7 +215,7 @@ const UsersScreen = () => {
           },
         },
       });
-    } catch (error) {
+    } catch {
       toast.error(
         "An error happened while assigning the new role. Please try again."
       );

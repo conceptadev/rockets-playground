@@ -8,6 +8,7 @@ import CircularProgress from "@mui/material/CircularProgress";
 import useTheme from "@mui/material/styles/useTheme";
 import { toast } from "react-toastify";
 
+import ScreenTitle from "../../components/ScreenTitle";
 import ChangePasswordForm from "./ChangePasswordForm";
 import ConfirmationModal from "./ConfirmationModal";
 import { profileFormSchema, widgets } from "./constants";
@@ -64,14 +65,7 @@ const ProfileScreen: FC = () => {
 
   return (
     <Box>
-      <Box sx={{ mb: 2 }}>
-        <Text fontSize={20} fontWeight={800} mt={4}>
-          Profile
-        </Text>
-        <Text fontWeight="400" fontSize={14}>
-          Update your profile
-        </Text>
-      </Box>
+      <ScreenTitle title="Profile" subtitle="Update your profile" />
 
       <Box display="flex" mb={4}>
         <SchemaForm.Form
@@ -85,17 +79,46 @@ const ProfileScreen: FC = () => {
             setFormData(formData);
           }}
         >
+          <Box mt={3}>
+            <Text sx={{ fontWeight: 600, fontSize: "14px" }}>Password</Text>
+            <Button
+              variant="outlined"
+              sx={{
+                color: theme.palette.text.primary,
+                borderColor: theme.palette.text.primary,
+                textTransform: "capitalize",
+              }}
+              onClick={openPasswordChangeModal}
+            >
+              Update Password
+            </Button>
+          </Box>
+
           <Box
             display="flex"
             flexDirection="row"
             alignItems="center"
-            justifyContent="space-between"
+            justifyContent="flex-end"
+            borderTop="1px solid rgba(0,0,0, 0.2)"
+            paddingTop={3}
+            gap={2}
             mt={3}
           >
+            <Button
+              variant="outlined"
+              sx={{
+                color: theme.palette.text.primary,
+                borderColor: theme.palette.text.primary,
+                textTransform: "capitalize",
+              }}
+            >
+              Cancel
+            </Button>
             <Button
               type="submit"
               variant="contained"
               disabled={isLoadingSubmit}
+              sx={{ textTransform: "capitalize" }}
             >
               {isLoadingSubmit ? (
                 <CircularProgress sx={{ color: "white" }} size={24} />
@@ -106,18 +129,6 @@ const ProfileScreen: FC = () => {
           </Box>
         </SchemaForm.Form>
       </Box>
-
-      <Button
-        variant="outlined"
-        sx={{
-          color: theme.palette.text.primary,
-          borderColor: theme.palette.text.primary,
-          mb: 4,
-        }}
-        onClick={openPasswordChangeModal}
-      >
-        Update Password
-      </Button>
 
       <Dialog
         open={isPasswordChangeModalOpen}
