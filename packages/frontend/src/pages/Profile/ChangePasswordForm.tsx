@@ -2,6 +2,7 @@ import { FC, useState } from "react";
 import { SchemaForm } from "@concepta/react-material-ui";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
+import useTheme from "@mui/material/styles/useTheme";
 
 import { type PasswordChangeFormData } from "./types";
 import {
@@ -21,6 +22,8 @@ const ChangePasswordForm: FC<ChangePasswordFormProps> = ({
   closePasswordChangeModal,
   openConfirmationModal,
 }) => {
+  const theme = useTheme();
+
   const [formData, setFormData] = useState<PasswordChangeFormData>({
     oldPassword: "",
     newPassword: "",
@@ -52,10 +55,26 @@ const ChangePasswordForm: FC<ChangePasswordFormProps> = ({
         display="flex"
         flexDirection="row"
         alignItems="center"
-        justifyContent="space-between"
+        justifyContent="flex-end"
         mt={4}
+        gap={2}
       >
-        <Button type="submit" variant="contained" sx={{ flex: 1, mr: 1 }}>
+        <Button
+          variant="outlined"
+          sx={{
+            color: theme.palette.text.primary,
+            borderColor: theme.palette.text.primary,
+            textTransform: "capitalize",
+          }}
+          onClick={() => closePasswordChangeModal()}
+        >
+          Cancel
+        </Button>
+        <Button
+          type="submit"
+          variant="contained"
+          sx={{ textTransform: "capitalize" }}
+        >
           Save
         </Button>
       </Box>
