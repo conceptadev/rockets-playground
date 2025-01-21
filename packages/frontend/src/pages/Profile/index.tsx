@@ -25,9 +25,9 @@ const ProfileScreen: FC = () => {
   const [isConfirmationModalOpen, setConfirmationModalOpen] =
     useState<boolean>(false);
   const [formData, setFormData] = useState({
+    fullName: "",
+    nickname: "",
     email: "",
-    firstName: "John",
-    lastName: "Smith",
   });
   const [isLoadingSubmit, setLoadingSubmit] = useState(false);
 
@@ -58,10 +58,16 @@ const ProfileScreen: FC = () => {
   };
 
   useEffect(() => {
-    if (user && !formData.email) {
-      setFormData({ ...formData, email: (user as User).email });
+    if (user) {
+      const form = user as User;
+
+      setFormData({
+        fullName: form.userProfile?.fullName || "",
+        nickname: form.userProfile?.nickname || "",
+        email: form.email || "",
+      });
     }
-  }, [user, formData]);
+  }, [user]);
 
   return (
     <Box>
@@ -133,7 +139,7 @@ const ProfileScreen: FC = () => {
       <Dialog
         open={isPasswordChangeModalOpen}
         handleClose={closePasswordChangeModal}
-        title="Change password"
+        title="Update password"
       >
         <ChangePasswordForm
           closePasswordChangeModal={closePasswordChangeModal}

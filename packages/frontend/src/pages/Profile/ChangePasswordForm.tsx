@@ -7,10 +7,8 @@ import useTheme from "@mui/material/styles/useTheme";
 import { type PasswordChangeFormData } from "./types";
 import {
   passwordChangeFormSchema,
-  widgets,
-  advancedProperties,
-  validationRules,
-  validateForm,
+  passwordChangeUiSchema,
+  customValidate,
 } from "./constants";
 
 interface ChangePasswordFormProps {
@@ -38,18 +36,15 @@ const ChangePasswordForm: FC<ChangePasswordFormProps> = ({
   return (
     <SchemaForm.Form
       schema={passwordChangeFormSchema}
-      advancedProperties={advancedProperties}
+      uiSchema={passwordChangeUiSchema}
       onSubmit={handleFormSubmit}
-      widgets={widgets}
       noHtml5Validate={true}
       showErrorList={false}
+      customValidate={customValidate}
       formData={formData}
       onChange={({ formData }) => {
         setFormData(formData);
       }}
-      customValidate={(formData, errors) =>
-        validateForm(formData, errors, validationRules)
-      }
     >
       <Box
         display="flex"
