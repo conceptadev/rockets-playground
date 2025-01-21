@@ -20,7 +20,10 @@ import {
   changePasswordProps,
 } from "./authConstants";
 import useGetMe from "./hooks/useGetMe";
+<<<<<<< HEAD
 import useSocialRedirect from "./hooks/useSocialRedirect";
+=======
+>>>>>>> 9cfedf8 (chore: add logo file)
 import Logo from "./assets/logo.svg";
 
 const Routes = () => {
