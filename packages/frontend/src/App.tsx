@@ -17,6 +17,7 @@ import {
   changePasswordProps,
 } from "./authConstants";
 import useGetMe from "./hooks/useGetMe";
+import Logo from "./assets/logo.svg";
 
 const Routes = () => {
   const navigate = useNavigate();
@@ -45,7 +46,9 @@ const Routes = () => {
         text: user?.userProfile?.fullName || "",
         subText: user?.email || "",
       }}
-      drawerProps={{}}
+      drawerProps={{
+        logo: Logo,
+      }}
     >
       <Resource
         id="/settings"
