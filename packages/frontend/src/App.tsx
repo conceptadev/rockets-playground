@@ -115,7 +115,7 @@ const App = () => (
   <Router
     rootElement={<AdminProvider />}
     childRoutes={<Routes />}
-    initialRoute="/settings"
+    initialRoute="/users"
   />
 );
 
