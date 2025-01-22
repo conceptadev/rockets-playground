@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SchemaForm } from "@concepta/react-material-ui";
-import { Box } from "@mui/material";
+import { Container, Card } from "@mui/material";
 import { useAuth } from "@concepta/react-auth-provider";
 import { Navigate } from "react-router";
 import { IChangeEvent } from "@rjsf/core";
@@ -40,42 +40,30 @@ const SignInScreen = ({ home }: { home: string }) => {
   }
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        height: "100%",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        flexDirection: "column",
-      }}
-    >
-      <Box
-        sx={{
-          maxWidth: 438,
-          width: "100%",
-        }}
-      >
-        <SchemaForm.Form
-          formData={formData}
-          onChange={({ formData }) => {
-            setFormData({
-              email: formData.email,
-              password: formData.password,
-            });
-          }}
-          customValidate={(formData, error) =>
-            validateForm(formData, error, validationRules)
-          }
-          onSubmit={handleSubmit}
-          schema={schema}
-          uiSchema={uiSchema}
-        >
-          <SchemaForm.Button>Submit</SchemaForm.Button>
-        </SchemaForm.Form>
+    <Container sx={{ textAlign: "center", padding: "48px 0" }}>
+      <Container maxWidth="xs">
+        <Card sx={{ padding: "24px" }}>
+          <SchemaForm.Form
+            formData={formData}
+            onChange={({ formData }) => {
+              setFormData({
+                email: formData.email,
+                password: formData.password,
+              });
+            }}
+            customValidate={(formData, error) =>
+              validateForm(formData, error, validationRules)
+            }
+            onSubmit={handleSubmit}
+            schema={schema}
+            uiSchema={uiSchema}
+          >
+            <SchemaForm.Button>Submit</SchemaForm.Button>
+          </SchemaForm.Form>
+        </Card>
         <SocialSignIn />
-      </Box>
-    </Box>
+      </Container>
+    </Container>
   );
 };
 

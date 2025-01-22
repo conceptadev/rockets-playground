@@ -49,9 +49,8 @@ const SocialSignIn = () => {
             width: "100%",
           }}
           onClick={() =>
-            window.open(
-              `${import.meta.env.VITE_PUBLIC_API_URL}auth/google/login`,
-              "_blank"
+            window.location.assign(
+              `${import.meta.env.VITE_PUBLIC_API_URL}/auth/google/login`
             )
           }
         >
@@ -68,9 +67,8 @@ const SocialSignIn = () => {
             height: "40px",
           }}
           onClick={() =>
-            window.open(
-              `${import.meta.env.VITE_PUBLIC_API_URL}auth/apple/login`,
-              "_blank"
+            window.location.assign(
+              `${import.meta.env.VITE_PUBLIC_API_URL}/auth/apple/login`
             )
           }
         >
