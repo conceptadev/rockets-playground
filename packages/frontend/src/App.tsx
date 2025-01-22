@@ -9,6 +9,7 @@ import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import SignInScreen from "./pages/SignIn";
 import UsersScreen from "./pages/Users";
 import ProfileScreen from "./pages/Profile";
 import {
@@ -25,6 +26,7 @@ const Routes = () => {
 
   return (
     <ChildRoutes
+      renderSignIn={(home) => <SignInScreen home={home} />}
       renderSignUp={() => null}
       authModuleProps={{
         signIn: signInProps,
