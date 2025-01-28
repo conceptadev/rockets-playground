@@ -12,17 +12,22 @@ import "react-toastify/dist/ReactToastify.css";
 import SignInScreen from "./pages/SignIn";
 import UsersScreen from "./pages/Users";
 import ProfileScreen from "./pages/Profile";
+import GoogleSignIn from "./pages/SocialSignIn/Google";
+import AppleSignIn from "./pages/SocialSignIn/Apple";
 import {
   signInProps,
   forgotPasswordProps,
   changePasswordProps,
 } from "./authConstants";
 import useGetMe from "./hooks/useGetMe";
+import useSocialRedirect from "./hooks/useSocialRedirect";
 import Logo from "./assets/logo.svg";
 
 const Routes = () => {
   const navigate = useNavigate();
   const { user } = useGetMe();
+
+  useSocialRedirect();
 
   return (
     <ChildRoutes
@@ -64,6 +69,26 @@ const Routes = () => {
         name="Profile"
         icon={<PersonOutlinedIcon />}
         page={<ProfileScreen />}
+      />
+
+      <Resource
+        id="/ssi/google"
+        name="Social Auth"
+        icon={null}
+        page={<GoogleSignIn />}
+        isUnprotected
+        showAppBar={false}
+        showDrawerItem={false}
+      />
+
+      <Resource
+        id="/ssi/apple"
+        name="Social Auth"
+        icon={null}
+        page={<AppleSignIn />}
+        isUnprotected
+        showAppBar={false}
+        showDrawerItem={false}
       />
     </ChildRoutes>
   );
