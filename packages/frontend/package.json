@@ -1,0 +1,46 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview",
+    "cy:open": "cypress open",
+    "cy:run-e2e": "cypress run",
+    "cy:run-unit": "cypress run --component"
+  },
+  "dependencies": {
+    "@concepta/react-auth-provider": "^2.0.0-alpha.16",
+    "@concepta/react-data-provider": "^2.0.0-alpha.16",
+    "@concepta/react-material-ui": "^2.0.0-alpha.16",
+    "@concepta/react-navigation": "^2.0.0-alpha.16",
+    "@emotion/react": "^11.13.5",
+    "@emotion/styled": "^11.13.5",
+    "@mui/icons-material": "^6.1.8",
+    "@mui/material": "^6.1.8",
+    "@mui/x-date-pickers": "^7.22.3",
+    "date-fns": "^4.1.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0",
+    "react-toastify": "^10.0.6"
+  },
+  "devDependencies": {
+    "@cypress/react18": "^2.0.1",
+    "@eslint/js": "^9.13.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.3",
+    "cypress": "^13.16.0",
+    "eslint": "^9.13.0",
+    "eslint-plugin-react-hooks": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.14",
+    "globals": "^15.11.0",
+    "typescript": "~5.6.2",
+    "typescript-eslint": "^8.11.0",
+    "vite": "^5.4.10"
+  }
+}
