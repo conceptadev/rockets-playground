@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "cy:open": "cypress open",
     "cy:run-e2e": "cypress run",
-    "cy:run-unit": "cypress run --component"
+    "cy:run-unit": "cypress run --component",
+    "start": "node server.js"
   },
   "dependencies": {
     "@concepta/react-auth-provider": "^2.0.0-alpha.16",
