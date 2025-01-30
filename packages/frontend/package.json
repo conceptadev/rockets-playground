@@ -11,7 +11,7 @@
     "cy:open": "cypress open",
     "cy:run-e2e": "cypress run",
     "cy:run-unit": "cypress run --component",
-    "start": "node server.js"
+    "start": "vite build && node server.js"
   },
   "dependencies": {
     "@concepta/react-auth-provider": "^2.0.0-alpha.16",
