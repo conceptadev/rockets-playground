@@ -14,6 +14,7 @@ import UsersScreen from "./pages/Users";
 import ProfileScreen from "./pages/Profile";
 import GoogleSignIn from "./pages/SocialSignIn/Google";
 import AppleSignIn from "./pages/SocialSignIn/Apple";
+import ForgotPasswordScreen from "./pages/ForgotPassword";
 import {
   signInProps,
   forgotPasswordProps,
@@ -22,6 +23,7 @@ import {
 import useGetMe from "./hooks/useGetMe";
 import useSocialRedirect from "./hooks/useSocialRedirect";
 import Logo from "./assets/logo.svg";
+import ResetPasswordScreen from "./pages/ResetPassword";
 
 const Routes = () => {
   const navigate = useNavigate();
@@ -33,6 +35,8 @@ const Routes = () => {
     <ChildRoutes
       renderSignIn={(home) => <SignInScreen home={home} />}
       renderSignUp={() => null}
+      renderForgotPassword={(home) => <ForgotPasswordScreen home={home} />}
+      renderResetPassword={(home) => <ResetPasswordScreen home={home} />}
       authModuleProps={{
         signIn: signInProps,
         forgotPassword: forgotPasswordProps,
