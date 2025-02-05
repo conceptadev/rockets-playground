@@ -5,8 +5,8 @@ describe("Sign In", () => {
 
   it("fills form inputs", () => {
     cy.visit("/sign-in");
-    cy.get("#root_username").type("admin@conceptatech.com");
-    cy.get("#root_password").type("Test1234");
+    cy.get("#root_username").type(Cypress.env("signInEmail"));
+    cy.get("#root_password").type(Cypress.env("signInPassword"));
     cy.contains("Send").click();
     cy.url().should("include", "/settings");
   });
