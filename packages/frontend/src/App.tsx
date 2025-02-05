@@ -3,28 +3,35 @@ import { useNavigate } from "react-router-dom";
 import { RocketsProvider, createConfig } from "@concepta/react-material-ui";
 import { Router, Resource, ChildRoutes } from "@concepta/react-navigation";
 import PeopleAltOutlinedIcon from "@mui/icons-material/PeopleAltOutlined";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
+import PersonOutlinedIcon from "@mui/icons-material/PersonOutline";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFnsV3";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+import SignInScreen from "./pages/SignIn";
 import UsersScreen from "./pages/Users";
-import SettingsScreen from "./pages/Settings";
+import ProfileScreen from "./pages/Profile";
+import GoogleSignIn from "./pages/SocialSignIn/Google";
+import AppleSignIn from "./pages/SocialSignIn/Apple";
 import {
   signInProps,
   forgotPasswordProps,
   changePasswordProps,
 } from "./authConstants";
 import useGetMe from "./hooks/useGetMe";
+import useSocialRedirect from "./hooks/useSocialRedirect";
 import Logo from "./assets/logo.svg";
 
 const Routes = () => {
   const navigate = useNavigate();
   const { user } = useGetMe();
 
+  useSocialRedirect();
+
   return (
     <ChildRoutes
+      renderSignIn={(home) => <SignInScreen home={home} />}
       renderSignUp={() => null}
       authModuleProps={{
         signIn: signInProps,
@@ -51,17 +58,37 @@ const Routes = () => {
       }}
     >
       <Resource
-        id="/settings"
-        name="Settings"
-        icon={<SettingsOutlinedIcon />}
-        page={<SettingsScreen />}
-      />
-
-      <Resource
         id="/users"
         name="Users"
         icon={<PeopleAltOutlinedIcon />}
         page={<UsersScreen />}
+      />
+
+      <Resource
+        id="/profile"
+        name="Profile"
+        icon={<PersonOutlinedIcon />}
+        page={<ProfileScreen />}
+      />
+
+      <Resource
+        id="/ssi/google"
+        name="Social Auth"
+        icon={null}
+        page={<GoogleSignIn />}
+        isUnprotected
+        showAppBar={false}
+        showDrawerItem={false}
+      />
+
+      <Resource
+        id="/ssi/apple"
+        name="Social Auth"
+        icon={null}
+        page={<AppleSignIn />}
+        isUnprotected
+        showAppBar={false}
+        showDrawerItem={false}
       />
     </ChildRoutes>
   );
@@ -115,7 +142,7 @@ const App = () => (
   <Router
     rootElement={<AdminProvider />}
     childRoutes={<Routes />}
-    initialRoute="/settings"
+    initialRoute="/users"
   />
 );
 
