@@ -1,12 +1,13 @@
 import { useState } from "react";
 import { SchemaForm } from "@concepta/react-material-ui";
-import { Container, Card } from "@mui/material";
+import { Container, Card, Typography, Link } from "@mui/material";
 import { useAuth } from "@concepta/react-auth-provider";
 import { Navigate } from "react-router";
 import { IChangeEvent } from "@rjsf/core";
 import { schema, uiSchema, validationRules } from "./constants";
 import { validateForm } from "@concepta/react-material-ui/dist/utils/form/validation";
 import SocialSignIn from "../../components/SocialSignIn";
+import LogoColored from "../../assets/logo-colored.svg";
 
 export type SignInFormData = {
   email: string;
@@ -41,6 +42,13 @@ const SignInScreen = ({ home }: { home: string }) => {
 
   return (
     <Container sx={{ textAlign: "center", padding: "48px 0" }}>
+      <img src={LogoColored} alt="Logo" />
+      <Typography variant="h4" mt={1} fontWeight={600}>
+        Welcome
+      </Typography>
+      <Typography variant="h6" mt={1} mb={2} fontWeight={500} color="#1976D2">
+        Sign in to continue
+      </Typography>
       <Container maxWidth="xs">
         <Card sx={{ padding: "24px" }}>
           <SchemaForm.Form
@@ -58,10 +66,15 @@ const SignInScreen = ({ home }: { home: string }) => {
             schema={schema}
             uiSchema={uiSchema}
           >
-            <SchemaForm.Button>Submit</SchemaForm.Button>
+            <SocialSignIn />
+            <Container sx={{ marginTop: 3 }}>
+              <Link href="/forgot-password" underline="none">
+                Forgot your password?
+              </Link>
+            </Container>
+            <SchemaForm.Button>Sign in</SchemaForm.Button>
           </SchemaForm.Form>
         </Card>
-        <SocialSignIn />
       </Container>
     </Container>
   );
