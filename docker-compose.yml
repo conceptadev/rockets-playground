@@ -5,10 +5,35 @@ services:
     container_name: frontend
     ports:
       - '5173:5173'
+    volumes:
+      - ./packages/frontend:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - NODE_ENV=development
+      - VITE_API_URL=http://backend:3000
+    depends_on:
+      backend:
+        condition: service_healthy
+
   backend:
     build: ./packages/backend
     container_name: backend
     ports:
       - '3000:3000'
+    volumes:
+      - ./packages/backend:/usr/src/app
+      - /usr/src/app/node_modules
+    environment:
+      - NODE_ENV=development
     stdin_open: true
     tty: true
+    healthcheck:
+      test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost:3000/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+
+networks:
+  default:
+    driver: bridge
