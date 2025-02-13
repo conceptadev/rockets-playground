@@ -1,12 +1,13 @@
 import { useEffect } from "react";
 import useDataProvider, { useQuery } from "@concepta/react-data-provider";
 import { useAuth } from "@concepta/react-auth-provider";
+import { User } from "../pages/Profile/types";
 
 type UseGetMeProps = (immediate?: boolean) => {
   execute: () => void;
   isPending: boolean;
-  user?: any;
-  setUser: (user: any) => void;
+  user?: User;
+  setUser: (user: User) => void;
 };
 
 const useGetMe: UseGetMeProps = (immediate) => {
@@ -18,7 +19,7 @@ const useGetMe: UseGetMeProps = (immediate) => {
       uri: "/me",
     });
 
-  const { execute, isPending } = useQuery<any>(getMe, immediate, {
+  const { execute, isPending } = useQuery<User>(getMe, immediate, {
     onSuccess: (data) => {
       setUser(data);
     },
@@ -33,7 +34,7 @@ const useGetMe: UseGetMeProps = (immediate) => {
   return {
     execute,
     isPending,
-    user: user as unknown as any,
+    user: user as User,
     setUser,
   };
 };
