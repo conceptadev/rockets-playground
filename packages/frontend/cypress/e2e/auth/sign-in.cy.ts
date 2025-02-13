@@ -8,6 +8,6 @@ describe("Sign In", () => {
     cy.get("#root_username").type(Cypress.env("signInEmail"));
     cy.get("#root_password").type(Cypress.env("signInPassword"));
     cy.contains("Send").click();
-    cy.url().should("include", "/settings");
+    cy.url().should("include", "/users");
   });
 });
