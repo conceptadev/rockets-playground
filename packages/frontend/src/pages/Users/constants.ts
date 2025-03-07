@@ -1,4 +1,3 @@
-// import { UserProfileActivityStatus } from "ses-ai-mu-portal-common"; // TODO: Fix this. Importing this breaks the app
 import { SelectFieldProps } from "@concepta/react-material-ui";
 import { ChipProps as MuiChipProps } from "@mui/material";
 

@@ -76,6 +76,7 @@ const UsersScreen = () => {
     title: "User Details",
     properties: {
       fullName: { type: "string", title: "Full Name" },
+      nickname: { type: "string", title: "Nickname" },
       email: { type: "string", title: "Email", format: "email" },
       roleId: {
         type: "string",
